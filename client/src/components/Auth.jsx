@@ -38,8 +38,10 @@ const Auth = () => {
 
     const { username, phoneNumber, password, avatarURL } = form;
 
-    const URL = 'http://localhost:5000/auth';
-
+    // const URL = 'http://localhost:5000/auth';
+    const URL = 'https://scooljinstitutechattingapp-e74fb6642888.herokuapp.com/auth';
+   
+ 
     const {data: {token, userId, hashedPassword, fullName }} = await axios.post(`${URL}/${isSignup ? 'signup': 'login'}`, {username, password, fullName: form.fullName, phoneNumber, avatarURL, });
 
     cookies.set('token', token)
